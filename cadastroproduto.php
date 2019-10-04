@@ -7,7 +7,12 @@
 		$marca = $_POST['marca'];
 		$vol = $_POST['volume'];
 		$dataval = $_POST['dataval'];
-
+	/*
+			EXEMPLO
+	INSERT INTO user (id, name, username, opted_in)
+  SELECT id, name, username, opted_in 
+  FROM user LEFT JOIN user_permission AS userPerm ON user.id = userPerm.user_id
+	*/
 		$sql = "INSERT INTO `produto`(`codigo`, `preco`) VALUES (:cod,:preco)";
 
 		$stmt = $db->prepare($sql);
