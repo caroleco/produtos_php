@@ -1,0 +1,55 @@
+-- Warning: You can generate script only for two tables at a time in your Free plan 
+-- 
+-- ****************** SqlDBM: MySQL ******************;
+-- ***************************************************;
+
+-- ************************************** `Produto`
+
+CREATE TABLE `Produto`
+(
+ `id`     int NOT NULL AUTO_INCREMENT ,
+ `codigo` int NOT NULL ,
+ `preco`  double NOT NULL ,
+
+PRIMARY KEY (`id`)
+);
+
+
+-- ************************************** `Leite`
+
+CREATE TABLE `Leite`
+(
+ `id`           int NOT NULL AUTO_INCREMENT ,
+ `marca`        varchar(45) NOT NULL ,
+ `volume`       double NOT NULL ,
+ `dataValidade` date NOT NULL ,
+ `id_produto`   int NOT NULL ,
+
+PRIMARY KEY (`id`),
+KEY `fkIdx_18` (`id_produto`),
+CONSTRAINT `FK_18` FOREIGN KEY `fkIdx_18` (`id_produto`) REFERENCES `Produto` (`id`)
+);
+
+
+
+
+
+
+-- ************************************** `Dvd`
+
+CREATE TABLE `Dvd`
+(
+ `id`         int NOT NULL AUTO_INCREMENT ,
+ `titulo`     varchar(45) NOT NULL ,
+ `ano`        int NOT NULL ,
+ `id_produto` int NOT NULL ,
+
+PRIMARY KEY (`id`),
+KEY `fkIdx_21` (`id_produto`),
+CONSTRAINT `FK_21` FOREIGN KEY `fkIdx_21` (`id_produto`) REFERENCES `Produto` (`id`)
+);
+
+
+
+
+
